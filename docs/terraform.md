@@ -26,5 +26,5 @@
 | Name | Description |
 |------|-------------|
 | account_alias | IAM account alias |
-| url | IAM users sign-in link |
+| signin_url | IAM users sign-in URL |
 

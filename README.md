@@ -44,8 +44,8 @@ output "account_alias" {
   value = "${module.account_settings.account_alias}"
 }
 
-output "url" {
-  value = "${module.account_settings.url}"
+output "signin_url" {
+  value = "${module.account_settings.signin_url}"
 }
 ```
 
@@ -92,7 +92,7 @@ Available targets:
 | Name | Description |
 |------|-------------|
 | account_alias | IAM account alias |
-| url | IAM users sign-in link |
+| signin_url | IAM users sign-in URL |
 
 
 
