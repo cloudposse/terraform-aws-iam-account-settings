@@ -17,7 +17,7 @@ resource "aws_iam_account_alias" "default" {
   account_alias = "${module.label.id}"
 }
 
-resource "aws_iam_account_password_policy" "this" {
+resource "aws_iam_account_password_policy" "default" {
   count = "${var.password_policy_enabled == "true" ? 1 : 0}"
 
   allow_users_to_change_password = "${var.allow_users_to_change_password}"

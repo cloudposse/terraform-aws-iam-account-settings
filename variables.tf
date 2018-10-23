@@ -9,7 +9,7 @@ variable "name" {
 }
 
 variable "namespace" {
-  description = "Namespace (e.g. `cp` or `cloudposse`)"
+  description = "Namespace (e.g. `eg` or `cp`)"
   default     = ""
 }
 
@@ -21,13 +21,13 @@ variable "stage" {
 variable "delimiter" {
   type        = "string"
   default     = "-"
-  description = "Delimiter to be used between `name`, `namespace`, `stage`, etc."
+  description = "Delimiter to be used between `namespace`, `stage`, `name` and `attributes`"
 }
 
 variable "attributes" {
   type        = "list"
   default     = []
-  description = "Additional attributes (e.g. `policy` or `role`)"
+  description = "Additional attributes (e.g. `1`, `a`, etc)"
 }
 
 variable "tags" {
