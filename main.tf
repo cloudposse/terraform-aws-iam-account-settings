@@ -1,5 +1,8 @@
+data "aws_caller_identity" "default" {}
+
 module "label" {
   source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.5.3"
+  enabled    = "${var.enabled}"
   namespace  = "${var.namespace}"
   stage      = "${var.stage}"
   name       = "${var.name}"
@@ -9,6 +12,8 @@ module "label" {
 }
 
 resource "aws_iam_account_alias" "default" {
+  count = "${var.enabled == "true" ? 1 : 0}"
+
   account_alias = "${module.label.id}"
 }
 
@@ -24,4 +29,8 @@ resource "aws_iam_account_password_policy" "this" {
   require_uppercase_characters   = "${var.require_uppercase_characters}"
   require_numbers                = "${var.require_numbers}"
   require_symbols                = "${var.require_symbols}"
+}
+
+locals {
+  account_alias = "${var.enabled == "true" ? join("", aws_iam_account_alias.default.*.account_alias) : data.aws_caller_identity.default.account_id}"
 }

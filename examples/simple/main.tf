@@ -12,6 +12,7 @@ module "account_settings" {
   namespace = "eg"
   stage     = "prod"
   name      = "account"
+  enabled   = "false"
 
   allow_users_to_change_password = true
   minimum_password_length        = 8
