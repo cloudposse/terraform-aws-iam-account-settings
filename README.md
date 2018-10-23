@@ -85,7 +85,7 @@ Available targets:
 | require_symbols | Whether to require symbols for user passwords | string | `true` | no |
 | require_uppercase_characters | Whether to require uppercase characters for user passwords | string | `true` | no |
 | stage | Stage (e.g. `prod`, `dev`, `staging`) | string | `` | no |
-| tags | Additional tags (e.g. `map('BusinessUnit','XYZ')`) | map | `<map>` | no |
+| tags | Additional tags (e.g. `{"BusinessUnit" = "XYZ"}`) | map | `<map>` | no |
 
 ## Outputs
 

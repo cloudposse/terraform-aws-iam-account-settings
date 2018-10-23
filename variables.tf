@@ -33,7 +33,7 @@ variable "attributes" {
 variable "tags" {
   type        = "map"
   default     = {}
-  description = "Additional tags (e.g. `map('BusinessUnit','XYZ')`)"
+  description = "Additional tags (e.g. `{\"BusinessUnit\" = \"XYZ\"}`)"
 }
 
 variable "password_policy_enabled" {
