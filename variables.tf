@@ -1,6 +1,6 @@
 variable "enabled" {
   description = "Whether or not to create the IAM account alias"
-  default     = "true"
+  default     = true
 }
 
 variable "name" {
@@ -38,7 +38,7 @@ variable "tags" {
 
 variable "password_policy_enabled" {
   description = "Whether or not to create the IAM account password policy"
-  default     = "true"
+  default     = true
 }
 
 variable "allow_users_to_change_password" {
