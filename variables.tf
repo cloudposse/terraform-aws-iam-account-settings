@@ -63,7 +63,7 @@ variable "minimum_password_length" {
 
 variable "password_reuse_prevention" {
   description = "The number of previous passwords that users are prevented from reusing"
-  default     = 3
+  default     = 1
 }
 
 variable "require_lowercase_characters" {
