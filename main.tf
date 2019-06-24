@@ -13,13 +13,13 @@ module "label" {
 }
 
 resource "aws_iam_account_alias" "default" {
-  count = var.enabled == "true" ? 1 : 0
+  count = var.enabled ? 1 : 0
 
   account_alias = module.label.id
 }
 
 resource "aws_iam_account_password_policy" "default" {
-  count = var.password_policy_enabled == "true" ? 1 : 0
+  count = var.password_policy_enabled ? 1 : 0
 
   allow_users_to_change_password = var.allow_users_to_change_password
   hard_expiry                    = var.hard_expiry
@@ -33,6 +33,6 @@ resource "aws_iam_account_password_policy" "default" {
 }
 
 locals {
-  account_alias = var.enabled == "true" ? join("", aws_iam_account_alias.default.*.account_alias) : data.aws_caller_identity.default.account_id
+  account_alias = var.enabled ? join("", aws_iam_account_alias.default.*.account_alias) : data.aws_caller_identity.default.account_id
 }
 
