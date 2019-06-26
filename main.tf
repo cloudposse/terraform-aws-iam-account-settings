@@ -2,7 +2,7 @@ data "aws_caller_identity" "default" {
 }
 
 module "label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.13.0"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.14.1"
   enabled    = var.enabled
   namespace  = var.namespace
   stage      = var.stage
