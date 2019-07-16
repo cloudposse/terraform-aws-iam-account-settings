@@ -4,14 +4,14 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | allow_users_to_change_password | Whether to allow users to change their own password | string | `true` | no |
-| attributes | Additional attributes (e.g. `policy` or `role`) | list | `<list>` | no |
-| delimiter | Delimiter to be used between `name`, `namespace`, `stage`, etc. | string | `-` | no |
+| attributes | Additional attributes (e.g. `1`, `a`, etc) | list | `<list>` | no |
+| delimiter | Delimiter to be used between `namespace`, `stage`, `name` and `attributes` | string | `-` | no |
 | enabled | Whether or not to create the IAM account alias | string | `true` | no |
 | hard_expiry | Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset) | string | `false` | no |
 | max_password_age | The number of days that a user's password is valid | string | `0` | no |
 | minimum_password_length | Minimum length to require for user passwords | string | `8` | no |
 | name | The Name of the account or solution  (e.g. `account`) | string | `account` | no |
-| namespace | Namespace (e.g. `cp` or `cloudposse`) | string | `` | no |
+| namespace | Namespace (e.g. `eg` or `cp`) | string | `` | no |
 | password_policy_enabled | Whether or not to create the IAM account password policy | string | `true` | no |
 | password_reuse_prevention | The number of previous passwords that users are prevented from reusing | string | `true` | no |
 | require_lowercase_characters | Whether to require lowercase characters for user passwords | string | `true` | no |
@@ -26,5 +26,6 @@
 | Name | Description |
 |------|-------------|
 | account_alias | IAM account alias |
+| minimum_password_length | IAM account minimum password length |
 | signin_url | IAM users sign-in URL |
 
