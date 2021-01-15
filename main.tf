@@ -1,21 +1,9 @@
 data "aws_caller_identity" "default" {}
 
-module "label" {
-  source     = "cloudposse/label/null"
-  version    = "0.22.1"
-  enabled    = var.enabled
-  namespace  = var.namespace
-  stage      = var.stage
-  name       = var.name
-  delimiter  = var.delimiter
-  attributes = var.attributes
-  tags       = var.tags
-}
-
 resource "aws_iam_account_alias" "default" {
   count = var.enabled == true ? 1 : 0
 
-  account_alias = module.label.id
+  account_alias = module.this.id
 }
 
 resource "aws_iam_account_password_policy" "default" {
@@ -33,5 +21,5 @@ resource "aws_iam_account_password_policy" "default" {
 }
 
 locals {
-  account_alias = var.enabled == true ? join("", aws_iam_account_alias.default.*.account_alias) : data.aws_caller_identity.default.account_id
+  account_alias = module.this.enabled == true ? join("", aws_iam_account_alias.default.*.account_alias) : data.aws_caller_identity.default.account_id
 }
