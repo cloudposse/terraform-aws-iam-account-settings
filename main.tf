@@ -1,7 +1,7 @@
 data "aws_caller_identity" "default" {}
 
 resource "aws_iam_account_alias" "default" {
-  count = var.enabled == true ? 1 : 0
+  count = module.this.enabled == true ? 1 : 0
 
   account_alias = module.this.id
 }
