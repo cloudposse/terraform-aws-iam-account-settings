@@ -34,14 +34,17 @@ usage: |-
 
   ```hcl
   module "account_settings" {
-    source     = "git::https://github.com/cloudposse/terraform-aws-iam-account-settings.git?ref=master"
+    source = "cloudposse/iam-account-settings/aws"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version     = "x.x.x"
+
     namespace  = "eg"
     stage      = "prod"
     name       = "account"
 
     allow_users_to_change_password = true
-    minimum_password_length        = 8
-    password_reuse_prevention      = true
+    minimum_password_length        = 20
+    password_reuse_prevention      = 30
   }
 
   output "account_alias" {
@@ -52,6 +55,32 @@ usage: |-
     value = "${module.account_settings.signin_url}"
   }
   ```
+
+  ## Security Info
+
+  For better compliance with modern security best practices the following rules are enabled for the AWS account:
+
+  Initial password creation (upon user creation) requires password to be reset on first login
+  * Minimum password length: 16 chars
+  * Requires at least one upper case letter
+  * Requires at least one lower case letter
+  * Requires at least one number
+  * Requires at least one alphanumeric character
+  * Passwords expire after 90 days
+  * Passwords may not be repeated more than every 5th time you reset a password
+  * Furthermore, MFA is required to assume a role (access to dev/staging/prod accounts), which is how access is granted to any and all AWS resources for staging/production.
+
+  These password requirements are a best effort to meet PCI DSS v3.2.1 regulations for passwords and MFA, as published in May 2018 (in this instance, only for AWS)
+
+  https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf
+
+  Source Sections (starting on page 72):
+
+  * 8.2.3
+  * 8.2.4
+  * 8.2.5
+  * 8.2.6
+  * 8.4 (documentation only)
 
 include:
   - "docs/targets.md"
@@ -99,3 +128,5 @@ contributors:
     github: "aknysh"
   - name: "Matt Calhoun"
     github: "mcalhoun"
+  - name: "Matt Gowie"
+    github: "Gowiem"
