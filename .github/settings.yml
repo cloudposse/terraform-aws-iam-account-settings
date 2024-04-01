@@ -1,0 +1,7 @@
+# Upstream changes from _extends are only recognized when modifications are made to this file in the default branch.
+_extends: .github
+repository:
+  name: terraform-aws-iam-account-settings
+  description: Terraform module to provision general IAM account settings
+  homepage: https://cloudposse.com/accelerate
+  topics: terraform, iam, account-alias, password-policy, custom-url, compliance
