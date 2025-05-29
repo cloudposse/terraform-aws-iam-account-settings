@@ -26,7 +26,7 @@ badges:
     url: https://github.com/cloudposse/terraform-aws-iam-account-settings/commits
   - name: Slack Community
     image: https://slack.cloudposse.com/for-the-badge.svg
-    url: https://slack.cloudposse.com
+    url: https://cloudposse.com/slack
 usage: |2-
 
   ```hcl
@@ -79,10 +79,7 @@ usage: |2-
   * 8.2.6
   * 8.4 (documentation only)
 
-include:
-  - "docs/targets.md"
-  - "docs/terraform.md"
-
+include: []
 
 # List any related terraform modules that this module may be used with or that this module depends on.
 related:
